@@ -1,0 +1,460 @@
+/* Bauhaus Style Theme */
+
+:root {
+    /* Bauhaus Palette */
+    --bauhaus-red: #E4002B;
+    --bauhaus-blue: #004D99;
+    --bauhaus-yellow: #F0CA00;
+    /* Slightly warmer yellow for web text readability if needed, but keeping generally primary */
+    --bauhaus-black: #1A1A1A;
+    --bauhaus-white: #F4F4F0;
+    /* Off-white for that paper grain feel */
+
+    --bg-color: var(--bauhaus-white);
+    --text-color: var(--bauhaus-black);
+
+    --font-heading: 'Archivo Black', 'Arial Black', sans-serif;
+    --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+    --spacing-unit: 1.5rem;
+    --border-width: 3px;
+}
+
+/* Removed Dark Mode as requested */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    /* Fix horizontal scroll on mobile */
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 5rem;
+    line-height: 0.9;
+    color: var(--bauhaus-black);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+h2 {
+    font-size: 3rem;
+    background: var(--bauhaus-black);
+    color: var(--bg-color);
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    transform: rotate(-2deg);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: var(--bauhaus-blue);
+    text-decoration: none;
+    border-bottom: 3px solid var(--bauhaus-blue);
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+a:hover {
+    background: var(--bauhaus-blue);
+    color: white;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+    position: relative;
+}
+
+.text-muted {
+    color: #666;
+    font-family: monospace;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: var(--border-width) solid var(--bauhaus-black);
+    box-shadow: 8px 8px 0px var(--bauhaus-blue);
+    transition: transform 0.2s;
+}
+
+.img-fluid:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px var(--bauhaus-red);
+}
+
+/* Header Composition */
+.bauhaus-header {
+    padding: 8rem 2rem 4rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    border-bottom: var(--border-width) solid var(--bauhaus-black);
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.bauhaus-header::before {
+    /* Decorative Circle */
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    width: 400px;
+    height: 400px;
+    background: var(--bauhaus-red);
+    border-radius: 50%;
+    z-index: -1;
+    border: var(--border-width) solid var(--bauhaus-black);
+}
+
+@media (max-width: 768px) {
+    .bauhaus-header::before {
+        width: 200px;
+        height: 200px;
+        top: -20px;
+        right: -50px;
+    }
+}
+
+.bauhaus-header::after {
+    /* Decorative Diamond behind text */
+    content: '';
+    position: absolute;
+    top: 42%;
+    left: 20%;
+    /* Moved left */
+    width: 300px;
+    /* Smaller */
+    height: 525px;
+    /* Smaller */
+    background: var(--bauhaus-yellow);
+    z-index: -1;
+    transform: translate(-50%, -50%) rotate(75deg);
+    border: var(--border-width) solid var(--bauhaus-black);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .bauhaus-header::after {
+        width: 200px;
+        height: 320px;
+        left: 38%;
+        top: 38%;
+    }
+}
+
+/* Tech Chips */
+.tech-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-chip {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--bauhaus-white);
+    border: 2px solid var(--bauhaus-black);
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 3px 3px 0px var(--bauhaus-blue);
+    transition: transform 0.2s;
+}
+
+.tech-chip:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px var(--bauhaus-red);
+}
+
+.header-title-block {
+    z-index: 2;
+}
+
+.header-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-left: 6px solid var(--bauhaus-blue);
+    padding-left: 1rem;
+    margin-top: 2rem;
+}
+
+/* Timeline Bauhaus Refactor */
+.timeline {
+    position: relative;
+    padding: 4rem 0;
+}
+
+/* The Line - Think bold structural beam */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 8px;
+    /* Thicker */
+    background: var(--bauhaus-black);
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .timeline::before {
+        left: 50%;
+        margin-left: -4px;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    width: 100%;
+}
+
+/* Pins - Geometric shapes */
+.timeline-icon {
+    position: absolute;
+    left: -4px;
+    /* Align with wider line */
+    width: 56px;
+    height: 56px;
+    background: var(--bauhaus-white);
+    border: var(--border-width) solid var(--bauhaus-black);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--bauhaus-black);
+
+    /* Make them squares by default for Bauhaus feel */
+    border-radius: 0;
+    transition: all 0.3s;
+}
+
+/* Alternate shapes for icons via nth-child logic in CSS isn't perfect for "types", 
+   but we can rotate them to make diamonds */
+.timeline-item:nth-child(even) .timeline-icon {
+    transform: rotate(45deg);
+}
+
+.timeline-item:nth-child(even) .timeline-icon i {
+    transform: rotate(-45deg);
+    /* Counter rotate icon */
+}
+
+/* Content Cards */
+.timeline-content {
+    margin-left: 80px;
+    background: var(--bauhaus-white);
+    padding: 2rem;
+    border: var(--border-width) solid var(--bauhaus-black);
+    /* Brutalist shadow */
+    box-shadow: 10px 10px 0px var(--bauhaus-black);
+
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smoother animation */
+}
+
+.timeline-content::after {
+    /* Decorative bar on card */
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 40px;
+    height: 10px;
+    background: var(--bauhaus-yellow);
+    border: var(--border-width) solid var(--bauhaus-black);
+}
+
+.timeline-content:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0px var(--bauhaus-red);
+}
+
+/* Alternating Design */
+@media (min-width: 768px) {
+    .timeline-item {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 50%;
+    }
+
+    .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-right: 0;
+        padding-left: 50%;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 3rem;
+        margin-right: 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-right: 3rem;
+        margin-left: 0;
+        text-align: right;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after {
+        right: auto;
+        left: 20px;
+        background: var(--bauhaus-blue);
+    }
+
+    .timeline-icon {
+        left: 50%;
+        margin-left: -28px;
+    }
+}
+
+/* Type Colors for borders/accents if needed, 
+   but Bauhaus relies more on Primary colors than functional coding.
+   Let's keep it consistent. */
+
+.project-tags span {
+    display: inline-block;
+    background: var(--bauhaus-black);
+    color: var(--bauhaus-white);
+    padding: 0.3rem 0.8rem;
+    font-family: monospace;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--bauhaus-black);
+}
+
+.button-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--bauhaus-red);
+    color: white !important;
+    text-transform: uppercase;
+    font-weight: 900;
+    border: 3px solid var(--bauhaus-black);
+    box-shadow: 5px 5px 0px var(--bauhaus-black);
+    margin-top: 1rem;
+    border-bottom: 3px solid var(--bauhaus-black);
+    /* Override default link */
+}
+
+.button-link:hover {
+    background: var(--bauhaus-white);
+    color: var(--bauhaus-red) !important;
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0px var(--bauhaus-black);
+}
+
+/* Footer / Contacts */
+.contact-section {
+    background: var(--bauhaus-blue);
+    color: white;
+    padding: 4rem 0;
+    border-top: var(--border-width) solid var(--bauhaus-black);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact-card {
+    background: var(--bauhaus-white);
+    color: var(--bauhaus-black);
+    padding: 2rem;
+    border: var(--border-width) solid var(--bauhaus-black);
+    text-align: center;
+}
+
+.contact-card h4 {
+    margin-top: 1rem;
+}
+
+.contact-card a {
+    color: var(--bauhaus-black);
+}
+
+/* Video */
+.video-container {
+    border: var(--border-width) solid var(--bauhaus-black);
+    box-shadow: 5px 5px 0px var(--bauhaus-yellow);
+    margin-top: 1rem;
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Profile Image */
+.profile-img {
+    border-radius: 50%;
+    border: var(--border-width) solid var(--bauhaus-black);
+    /* filter: grayscale(100%) contrast(120%); Removed B&W Filter */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 10px 10px 0px var(--bauhaus-blue);
+}
