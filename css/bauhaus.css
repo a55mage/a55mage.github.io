@@ -131,6 +131,47 @@ a:hover {
     box-shadow: 12px 12px 0px var(--bauhaus-red);
 }
 
+/* Carousel */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    /* Space for scrollbar */
+    margin-bottom: 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bauhaus-blue) transparent;
+}
+
+.carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background-color: var(--bauhaus-blue);
+    border-radius: 4px;
+    border: 1px solid var(--bauhaus-black);
+}
+
+.carousel-item {
+    scroll-snap-align: center;
+    flex: 0 0 80%;
+    /* Show part of next item */
+    max-width: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    /* Inherit img-fluid styles but ensure width */
+}
+
+
 /* Header Composition */
 .bauhaus-header {
     padding: 8rem 2rem 4rem 2rem;
